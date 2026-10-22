@@ -14,6 +14,15 @@ public class Main {
         System.out.println("4. Salir");
         System.out.print(" Seleccione una opcion: ");
         int opcion = scanner.nextInt ();
+        if (opcion==1){
+            //funcion1
+        }
+        if (opcion==2){
+            //funcion2
+        }
+        if (opcion==3){
+            //funcion3
+        }
         if (opcion == 4) {
         salir = true;
         System.out.println(" Saliendo del programa ...");
