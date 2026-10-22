@@ -21,7 +21,7 @@ public class Main {
                 //funcion2
             }
             if (opcion == 3) {
-                calcularCosteServicio(scanner);
+                probarCalculoCoste(scanner);
             }
             if (opcion == 4) {
                 salir = true;
@@ -82,9 +82,9 @@ public class Main {
             double descuento = precioBase * porcentajeDescuento;
             double precioFinal = precioBase - descuento;
             return precioFinal;
-        }
-        catch (Excepcion e){
-            System.out.println("Has cometido un error")
+        } catch (Exception e) {
+            System.out.println("Has cometido un error");
+            return 0.0;
         }
     }
 
@@ -110,7 +110,8 @@ public class Main {
     }
         catch (Exception e)
         {
-            System.out.println("Has cometido un error")
+            System.out.println("Has cometido un error");
+            scanner.nextLine();
         }
     }
 }
