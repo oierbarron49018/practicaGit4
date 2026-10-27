@@ -1,6 +1,9 @@
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
+import java.time.format. DateTimeParseException ;
+import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -18,8 +21,7 @@ public class Main {
             int opcion = sc.nextInt ();
             sc.nextLine();
             if (opcion==1){
-            String matricula=registrarMatricula();
-            LocalDate fecha=registrarFecha();
+                String matricula=registrarMatricula();
             }
             if (opcion==2){
                 //funcion2
@@ -28,11 +30,11 @@ public class Main {
                 //funcion3
             }
             if (opcion == 4) {
-            salir = true;
-            System.out.println(" Saliendo del programa ...");
-            }
+                salir = true;
+                System.out.println(" Saliendo del programa ...");
             }
         }
+    }
     public static String registrarMatricula() {
         String matricula;
         while (true) {
@@ -52,26 +54,5 @@ public class Main {
         }
         return matricula;
     }
-    public static LocalDate registrarFecha() {
-        LocalDate fecha;
-        while (true) {
-            try {
-                System.out.println("Introduce la fecha (formato dd/mm/yyyy):");
-                String fechamal = sc.nextLine();
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-                fecha = LocalDate.parse(fechamal, formatter);
-                if (!fecha.isAfter(LocalDate.now())) {
-                    throw new IllegalArgumentException("La fecha debe ser posterior a la fecha actual (" + LocalDate.now() + ").");
-                }
-                LocalDate fechaCita = fecha;
-                System.out.println("Fecha registrada correctamente: " + fechaCita);
-                break;
-            } catch (IllegalArgumentException e) {
-                System.out.println("Error: " + e.getMessage() + " Inténtalo de nuevo.");
-            } catch (Exception e) {
-                System.out.println("Error: El formato debe ser dd/mm/yyyy y una fecha existente (ej. 25/12/2026).");
-            }
-        }
-        return fecha;
-    }
 }
+
